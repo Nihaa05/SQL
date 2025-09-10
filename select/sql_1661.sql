@@ -1,10 +1,9 @@
-/*https://leetcode.com/problems/article-views-i/?envType=study-plan-v2&envId=top-sql-50*/
-select t1.machine_id, round(avg(t2.timestamp- t1.timestamp),3) as processing_time
-from activity t1
-join activity t2
-on t1.machine_id = t2.machine_id
-and t1.process_id = t2.process_id
-and t1.activity_type = 'start'
-and t2.activity_type = 'end'
-
-group by t1.machine_id
+# Write your MySQL query statement below
+select sa.machine_id, round(avg(ea.timestamp - sa.timestamp),3) as processing_time
+from activity sa
+join activity ea
+on sa.machine_id = ea.machine_id
+and sa.process_id = ea.process_id
+and sa.activity_type = 'start'
+and ea.activity_type = 'end'
+group by sa.machine_id
